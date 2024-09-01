@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const pg = require('pg');
 const { config } = require('../config/config');
 const setUpModel = require('../db/models')
 // const USER = encodeURI(config.dbUser);
@@ -11,10 +12,11 @@ const options = {
   logging: config.isProd ? false : true, // si esta en production el loggin de sequelize estara apagado
 }
 
-if(config.isProd){ // solo tendra ssl en produccion
+if(config.isProd){
   options.ssl = {
-    rejectUnauthorized:false
+    rejectUnauthorized: false  // Permitir conexiones SSL sin verificación
   }
+  options.dialectModule = pg
 }
 const sequelize = new Sequelize(config.dbUrl,options);
 
