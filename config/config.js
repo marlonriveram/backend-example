@@ -8,7 +8,8 @@ const config = {
   dbPassword: process.env.POSTGRES_PASSWORD,
   dbName: process.env.POSTGRES_DB, // nombre base datos
   dbHost : process.env.POSTGRES_HOST, // host de mi db
-  dbPort : process.env.POSTGRES_PORT // puerto donde corre mi base de datos en este caso en docker compose de puso el puerto 5432
+  dbPort : process.env.POSTGRES_PORT, // puerto donde corre mi base de datos en este caso en docker compose de puso el puerto 5432
+  dbUrl : process.env.DATABASE_URL,
 };
 
 module.exports = { config };
