@@ -1,0 +1,16 @@
+version: '3.8' # version de docker compose
+services: # los servicios
+  db: # nombre del servicio .  es una base de datos postgres
+    image: postgres:13 # imagen de postgres
+    environment: # variables de entorno
+      - POSTGRES_DB=my_database # nombre de la base de datos
+      - POSTGRES_USER=marlon
+      - POSTGRES_PASSWORD=admin123
+    ports: # puertos de comunicacion
+      - 5432:5432
+    volumes: # volumenes, permiten hacer persistencia
+      - ./postgres_data:/var/lib/postgresql/data
+
+
+
+
